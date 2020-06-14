@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - '12'
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: "soniabm"
+branches:
+  only:
+    - develop
+    - /^release-[0-999].[0-999]$/
+    - master
+notifications:
+  email:
+    recipients:
+      - sonia.bejar017@gmail.com
+      - masanchezve@gmail.com
+script:
+  - ng test --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - ng e2e --protractor-config=e2e/protractor-travis.conf.js
+  - sonar-scanner
+# Deploy https://holy-key-universe-front.herokuapp.com
+deploy:
+  provider: heroku
+  api_key: $HEROKU
+  on:
+    branch: master
