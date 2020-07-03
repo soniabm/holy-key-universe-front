@@ -1,0 +1,6 @@
+<div id="" class="list-group center">
+  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show">
+    <strong>Error! </strong>{{ error }}
+  </div>
+  <a *ngFor="let itinerary of itineraries" href="#" class="list-group-item list-group-item-action elem">{{ itinerary.title }}</a>
+</div>
