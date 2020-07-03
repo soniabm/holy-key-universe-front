@@ -9,8 +9,4 @@ describe('ItineraryService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ItineraryService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
