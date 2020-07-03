@@ -1,0 +1,5 @@
+<div class="itinerary-container">
+  <app-loader *ngIf="!ItineraryLoaded"></app-loader>
+  <span *ngIf="ItineraryLoaded && !this.errorMessage">Itinerario cargado</span>
+  <span *ngIf="this.errorMessage">{{ errorMessage }}</span>
+</div>

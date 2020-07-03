@@ -16,4 +16,8 @@ export class ItineraryService {
   getItineraries(): Observable<Itinerary[]> {
     return this.httpClient.request<Itinerary[]>('GET', this.url, {responseType: 'json'});
   }
+
+  getItinerary(id: string): Observable<Itinerary[]> {
+    return this.httpClient.request<Itinerary[]>('GET', this.url + `/${id}`, {responseType: 'json'});
+  }
 }
