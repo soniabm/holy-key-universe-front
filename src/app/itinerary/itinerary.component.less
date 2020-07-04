@@ -1,0 +1,44 @@
+.arrow{
+  display: flex;
+  align-items: center;
+  svg{
+    height: 70px;
+    width: 70px;
+    fill: #232323;
+  }
+  &.arrow-previous{
+    transform: rotate(180deg);
+  }
+  &:hover:not(.disabled){
+    svg{
+      fill: #fe525b;
+      transform: scale(1.1);
+    }
+  }
+  &.disabled{
+    svg{
+      opacity: 0.2
+    }
+  }
+}
+
+.itinerary-container{
+  padding: 15px;
+  display: flex;
+  width: 100%;
+  h1{
+    font-family: 'Raleway', serif;
+  }
+  .itinerary-content{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+:host {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
