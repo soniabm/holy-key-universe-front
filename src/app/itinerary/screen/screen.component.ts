@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 import {ItineraryService} from '../../shared/itinerary.service';
 import {Screen} from '../../shared/models/screen.model';
@@ -8,7 +8,7 @@ import {Screen} from '../../shared/models/screen.model';
   templateUrl: './screen.component.html',
   styleUrls: ['./screen.component.less']
 })
-export class ScreenComponent implements OnInit {
+export class ScreenComponent implements OnInit, OnChanges {
   @Input()
   idScreen: string;
   screenLoaded = false;
@@ -19,6 +19,10 @@ export class ScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadScreen();
+  }
+
+  loadScreen(): void {
     this.itineraryService.getScreen(this.idScreen).subscribe(screen => {
       this.screenLoaded = true;
       this.screen = screen;
@@ -26,6 +30,12 @@ export class ScreenComponent implements OnInit {
       this.screenLoaded = true;
       this.errorMessage = 'No se ha podido cargar la pantalla';
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes.idScreen.firstChange && changes.idScreen.currentValue !== changes.idScreen.previousValue) {
+      this.loadScreen();
+    }
   }
 
 }
