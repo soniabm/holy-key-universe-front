@@ -9,7 +9,7 @@
   </div>
   <div class="itinerary-content">
     <h1>{{ itinerary.title }}</h1>
-    <span *ngIf="ItineraryLoaded && !this.errorMessage">{{ itinerary.screens[screenNumber] }}</span>
+    <app-screen [idScreen]="itinerary.screens[screenNumber]"></app-screen>
   </div>
   <div [ngClass]="{'disabled': isLastScreen()}" (click)="nextScreen()" class="arrow">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 512 512">
