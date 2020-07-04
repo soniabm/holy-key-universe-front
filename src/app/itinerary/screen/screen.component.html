@@ -1,0 +1,7 @@
+<div>
+  <app-loader *ngIf="!screenLoaded"></app-loader>
+  <span *ngIf="this.errorMessage" class="alert alert-danger alert-dismissible fade show">
+    <strong>Error! </strong>{{ errorMessage }}
+  </span>
+  <div *ngIf="screenLoaded && !errorMessage">{{ screen.title }}</div>
+</div>
