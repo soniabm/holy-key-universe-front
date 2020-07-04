@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ItineraryService} from '../shared/itinerary.service';
 import {Subscription} from 'rxjs';
+import {Itinerary} from '../shared/models/Itinerary.model';
 
 @Component({
   selector: 'app-itinerary',
@@ -11,6 +12,8 @@ import {Subscription} from 'rxjs';
 export class ItineraryComponent implements OnInit, OnDestroy {
   ItineraryLoaded = false;
   errorMessage: string;
+  itinerary: Itinerary;
+  screenNumber: number;
 
   private itinerarySubscription: Subscription;
 
@@ -29,7 +32,9 @@ export class ItineraryComponent implements OnInit, OnDestroy {
 
   private getItinerary(id: string) {
     this.itinerarySubscription = this.itineraryService.getItinerary(id).subscribe(
-      () => {
+      (itinerary: Itinerary) => {
+        this.itinerary = itinerary;
+        this.screenNumber = 0;
         this.ItineraryLoaded = true;
       },
       () => {
@@ -38,8 +43,27 @@ export class ItineraryComponent implements OnInit, OnDestroy {
       });
   }
 
+  nextScreen(){
+    if (!this.isLastScreen()){
+      this.screenNumber++;
+    }
+  }
+
+  previousScreen(){
+    if (!this.isFirstScreen()){
+      this.screenNumber--;
+    }
+  }
+
+  isFirstScreen(){
+    return this.screenNumber === 0;
+  }
+
+  isLastScreen(){
+    return this.screenNumber === this.itinerary.screens.length - 1;
+  }
+
   ngOnDestroy() {
     this.itinerarySubscription.unsubscribe();
   }
-
 }
