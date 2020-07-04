@@ -9,6 +9,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import {ItineraryComponent} from './itinerary/itinerary.component';
 import {LoaderComponent} from './shared/loader/loader.component';
+import { ScreenComponent } from './itinerary/screen/screen.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {LoaderComponent} from './shared/loader/loader.component';
     FooterComponent,
     HomeComponent,
     ItineraryComponent,
-    LoaderComponent
+    LoaderComponent,
+    ScreenComponent
   ],
   imports: [
     BrowserModule,
