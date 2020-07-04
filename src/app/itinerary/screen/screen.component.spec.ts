@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 import { ScreenComponent } from './screen.component';
 
@@ -8,7 +9,8 @@ describe('ScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScreenComponent ]
+      declarations: [ ScreenComponent ],
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));
