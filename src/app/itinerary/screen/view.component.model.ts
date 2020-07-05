@@ -2,7 +2,8 @@ export enum ViewComponentType {
   COLUMN = 'column',
   ROW = 'row',
   TEXT = 'text',
-  IMAGE = 'image'
+  IMAGE = 'image',
+  DIAGRAM = 'diagram'
 }
 
 export interface ViewComponent {
