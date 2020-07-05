@@ -1,2 +1,2 @@
-<p *ngIf="isText()">{{ viewComponent.text }}</p>
-<img *ngIf="isImage()" [src]="viewComponent.image" [alt]="viewComponent.image"/>
+<div *ngIf="isText()" class="mx-3">{{ viewComponent.text }}</div>
+<img *ngIf="isImage()" [alt]="viewComponent.image" [src]="viewComponent.image" class="px-3 py-3"/>

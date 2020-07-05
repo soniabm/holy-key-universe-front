@@ -3,8 +3,9 @@
   <strong>Error! </strong>{{ errorMessage }}
 </span>
 <ng-container *ngIf="screenLoaded && !errorMessage">
-  <h2 class="text-center screen-title">{{ screen.title }}</h2>
+  <h2 class="text-center screen-title mb-5">{{ screen.title }}</h2>
   <div class="screen-content">
+    <app-grid *ngIf="isScreenComposite()" [viewComponent]="screenComponent"></app-grid>
     <app-simple *ngIf="!isScreenComposite()" [viewComponent]="screenComponent"></app-simple>
   </div>
 </ng-container>
