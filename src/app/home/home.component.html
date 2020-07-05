@@ -1,7 +1,15 @@
-<div id="" class="list-group center">
-  <div *ngIf="error" class="alert alert-danger alert-dismissible fade show">
-    <strong>Error! </strong>{{ error }}
+<div>
+  <div class="center">
+    <app-loader *ngIf="!itinerariesLoaded"></app-loader>
   </div>
-  <div *ngIf="!error && itineraries.length === 0" class="alert alert-info alert-dismissible fade show">No existen itinerarios</div>
-  <a *ngFor="let itinerary of itineraries" [routerLink]="['/itinerary', itinerary.title]" class="list-group-item list-group-item-action elem">{{ itinerary.title }}</a>
+  <div class="list-group center">
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show">
+      <strong>Error! </strong>{{ errorMessage }}
+    </div>
+    <div *ngIf="!errorMessage && itinerariesLoaded && itineraries.length === 0" class="alert alert-info alert-dismissible fade show">No existen itinerarios</div>
+    <a *ngFor="let itinerary of itineraries" [routerLink]="['/itinerary', itinerary.title]" class="list-group-item list-group-item-action elem">{{ itinerary.title }}</a>
+  </div>
 </div>
+
+
+
