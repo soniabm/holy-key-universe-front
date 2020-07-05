@@ -27,4 +27,8 @@ export class SimpleComponent implements OnInit {
     return this.getType() === ViewComponentType.IMAGE;
   }
 
+  isDiagram(): boolean {
+    return this.getType() === ViewComponentType.DIAGRAM;
+  }
+
 }

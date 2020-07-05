@@ -12,6 +12,7 @@ import {LoaderComponent} from './shared/loader/loader.component';
 import {ScreenComponent} from './itinerary/screen/screen.component';
 import {SimpleComponent} from './itinerary/screen/view-component/simple/simple.component';
 import {GridComponent} from './itinerary/screen/view-component/grid/grid.component';
+import { DiagramComponent } from './itinerary/screen/view-component/simple/diagram/diagram.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {GridComponent} from './itinerary/screen/view-component/grid/grid.compone
     LoaderComponent,
     ScreenComponent,
     SimpleComponent,
-    GridComponent
+    GridComponent,
+    DiagramComponent
   ],
   imports: [
     BrowserModule,
