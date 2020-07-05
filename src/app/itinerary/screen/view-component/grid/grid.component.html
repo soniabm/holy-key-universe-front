@@ -1,0 +1,8 @@
+<div [ngStyle]="{'flex-direction': viewComponentType}" class="grid-container">
+  <div *ngFor="let item of viewComponent[viewComponentType] | keyvalue">
+    <app-grid *ngIf="isComposite(item.value)" [viewComponent]="item.value"></app-grid>
+    <app-simple *ngIf="!isComposite(item.value)" [viewComponent]="item.value"></app-simple>
+  </div>
+</div>
+
+

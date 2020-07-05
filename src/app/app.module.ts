@@ -5,12 +5,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './shared/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FooterComponent } from './shared/footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import {FooterComponent} from './shared/footer/footer.component';
+import {HomeComponent} from './home/home.component';
 import {ItineraryComponent} from './itinerary/itinerary.component';
 import {LoaderComponent} from './shared/loader/loader.component';
-import { ScreenComponent } from './itinerary/screen/screen.component';
-import { SimpleComponent } from './itinerary/screen/view-component/simple/simple.component';
+import {ScreenComponent} from './itinerary/screen/screen.component';
+import {SimpleComponent} from './itinerary/screen/view-component/simple/simple.component';
+import {GridComponent} from './itinerary/screen/view-component/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SimpleComponent } from './itinerary/screen/view-component/simple/simple
     ItineraryComponent,
     LoaderComponent,
     ScreenComponent,
-    SimpleComponent
+    SimpleComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

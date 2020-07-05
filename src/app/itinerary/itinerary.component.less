@@ -1,24 +1,24 @@
 .arrow{
+  max-height: calc(~"100vh - 110px");
   display: flex;
   align-items: center;
-  svg{
+
+  svg {
     height: 70px;
     width: 70px;
     fill: #232323;
-  }
-  &.arrow-previous{
-    transform: rotate(180deg);
-  }
-  &:hover:not(.disabled){
-    svg{
+
+    &:hover:not(.disabled) {
       fill: #fe525b;
       transform: scale(1.1);
     }
-  }
-  &.disabled{
-    svg{
+
+    &.disabled {
       opacity: 0.2
     }
+  }
+  &.arrow-previous{
+    transform: rotate(180deg);
   }
 }
 
