@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {ItineraryComponent} from './itinerary/itinerary.component';
 import {LoaderComponent} from './shared/loader/loader.component';
 import { ScreenComponent } from './itinerary/screen/screen.component';
+import { SimpleComponent } from './itinerary/screen/view-component/simple/simple.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ScreenComponent } from './itinerary/screen/screen.component';
     HomeComponent,
     ItineraryComponent,
     LoaderComponent,
-    ScreenComponent
+    ScreenComponent,
+    SimpleComponent
   ],
   imports: [
     BrowserModule,

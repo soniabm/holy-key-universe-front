@@ -1,7 +1,10 @@
-<div>
-  <app-loader *ngIf="!screenLoaded"></app-loader>
-  <span *ngIf="this.errorMessage" class="alert alert-danger alert-dismissible fade show">
-    <strong>Error! </strong>{{ errorMessage }}
-  </span>
-  <div *ngIf="screenLoaded && !errorMessage">{{ screen.title }}</div>
-</div>
+<app-loader *ngIf="!screenLoaded"></app-loader>
+<span *ngIf="this.errorMessage" class="alert alert-danger alert-dismissible fade show">
+  <strong>Error! </strong>{{ errorMessage }}
+</span>
+<ng-container *ngIf="screenLoaded && !errorMessage">
+  <h2 class="text-center screen-title">{{ screen.title }}</h2>
+  <div class="screen-content">
+    <app-simple *ngIf="!isScreenComposite()" [viewComponent]="screenComponent"></app-simple>
+  </div>
+</ng-container>
