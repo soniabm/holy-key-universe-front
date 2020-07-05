@@ -9,14 +9,19 @@ import { Itinerary } from '../shared/models/Itinerary.model';
 })
 export class HomeComponent implements OnInit {
   itineraries: Itinerary[] = [];
-  error = null;
+  itinerariesLoaded = false;
+  errorMessage: string;
 
   constructor(private itineraryService: ItineraryService) { }
 
   ngOnInit(): void {
     this.itineraryService.getItineraries().subscribe( itineraries => {
       this.itineraries = itineraries;
-    }, () => this.error = 'No se han podido cargar los itinerarios');
+      this.itinerariesLoaded = true;
+    }, () => {
+      this.errorMessage = 'No se han podido cargar los itinerarios';
+      this.itinerariesLoaded = true;
+    });
   }
 
 }
