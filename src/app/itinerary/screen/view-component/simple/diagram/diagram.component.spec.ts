@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiagramComponent } from './diagram.component';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('DiagramComponent', () => {
   let component: DiagramComponent;
@@ -8,7 +9,8 @@ describe('DiagramComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiagramComponent ]
+      declarations: [ DiagramComponent ],
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));
