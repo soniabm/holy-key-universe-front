@@ -38,7 +38,7 @@ export class ItineraryComponent implements OnInit, OnDestroy {
         this.ItineraryLoaded = true;
       },
       () => {
-        this.errorMessage = 'Error';
+        this.errorMessage = 'Hubo algún problema al cargar el itinerario';
         this.ItineraryLoaded = true;
       });
   }
