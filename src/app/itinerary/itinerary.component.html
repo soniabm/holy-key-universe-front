@@ -8,22 +8,24 @@
   </div>
 </div>
 
-<div *ngIf="ItineraryLoaded && !errorMessage" class="itinerary-container">
-  <div class="arrow arrow-previous sticky-top">
-    <svg (click)="previousScreen()" [ngClass]="{'disabled': isFirstScreen()}" height="50"
-         viewBox="0 0 512 512" width="50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M87.385 430.771l81.23 81.229 255.999-256.001-256.001-255.999-81.225 81.225 174.772 174.774z"></path>
-    </svg>
-  </div>
-  <div class="itinerary-content">
-    <h1>{{ itinerary.title }}</h1>
-    <app-screen class="screen-container" [idScreen]="itinerary.screens[screenNumber]"></app-screen>
-  </div>
-  <div class="arrow sticky-top">
-    <svg (click)="nextScreen()" [ngClass]="{'disabled': isLastScreen()}" height="50" viewBox="0 0 512 512"
-         width="50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M87.385 430.771l81.23 81.229 255.999-256.001-256.001-255.999-81.225 81.225 174.772 174.774z"></path>
-    </svg>
+<div *ngIf="ItineraryLoaded && !errorMessage" class="container-fluid">
+  <div class="itinerary-container">
+    <div class="arrow arrow-previous sticky-top">
+      <svg (click)="previousScreen()" [ngClass]="{'disabled': isFirstScreen()}" height="50"
+           viewBox="0 0 512 512" width="50" xmlns="http://www.w3.org/2000/svg">
+        <path d="M87.385 430.771l81.23 81.229 255.999-256.001-256.001-255.999-81.225 81.225 174.772 174.774z"></path>
+      </svg>
+    </div>
+    <div class="itinerary-content">
+      <h1>{{ itinerary.title }}</h1>
+      <app-screen class="screen-container" [idScreen]="itinerary.screens[screenNumber]"></app-screen>
+    </div>
+    <div class="arrow sticky-top">
+      <svg (click)="nextScreen()" [ngClass]="{'disabled': isLastScreen()}" height="50" viewBox="0 0 512 512"
+           width="50" xmlns="http://www.w3.org/2000/svg">
+        <path d="M87.385 430.771l81.23 81.229 255.999-256.001-256.001-255.999-81.225 81.225 174.772 174.774z"></path>
+      </svg>
+    </div>
   </div>
 </div>
 

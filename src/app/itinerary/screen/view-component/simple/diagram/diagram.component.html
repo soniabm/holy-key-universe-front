@@ -1,2 +1,36 @@
 <div *ngIf="errorMessage">{{ errorMessage }}</div>
-
+<div *ngIf="!errorMessage && this.diagramLoaded">
+  <div class="d-flex flex-row classes-row">
+    <div *ngIf="unit.bases.length > 0" id="bases" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let base of unit.bases">{{base}}</div>
+    </div>
+    <div *ngIf="unit.wholes.length > 0" id="wholes" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let whole of unit.wholes">{{whole}}</div>
+    </div>
+    <div *ngIf="unit.elements.length > 0" id="elements" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let element of unit.elements">{{element}}</div>
+    </div>
+  </div>
+  <div class="d-flex flex-row classes-row">
+    <div *ngIf="unit.usedBy.length > 0" id="usedBy" class="d-flex flex-row align-items-start">
+      <div class="m-2 p-2 class-box" *ngFor="let usedBy of unit.usedBy">{{usedBy}}</div>
+    </div>
+    <div [ngStyle]="{'padding-top': unit.usedBy.length > 0 ? '40px' : '0'}" id="classDiagram">
+      <div class="m-2 p-2 class-box">{{unit.getName()}}</div>
+    </div>
+    <div *ngIf="unit.used.length > 0" id="used" [ngStyle]="{'padding-top': unit.usedBy.length > 0 ? '80px' : '40px'}" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let used of unit.used">{{used}}</div>
+    </div>
+  </div>
+  <div class="d-flex flex-row">
+    <div *ngIf="unit.derivatives.length > 0" id="derivatives" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let derivative of unit.derivatives">{{derivative}}</div>
+    </div>
+    <div *ngIf="unit.parts.length > 0" id="parts" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let part of unit.parts">{{part}}</div>
+    </div>
+    <div *ngIf="unit.aggregates.length > 0" id="aggregates" class="d-flex flex-row">
+      <div class="m-2 p-2 class-box" *ngFor="let aggregate of unit.aggregates">{{aggregate}}</div>
+    </div>
+  </div>
+</div>

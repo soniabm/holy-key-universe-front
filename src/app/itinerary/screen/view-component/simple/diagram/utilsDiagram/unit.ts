@@ -8,8 +8,8 @@ export class Unit {
   wholes: string[] = [];
   elements: string[] = [];
   aggregates: string[] = [];
-  useds: string[] = [];
-  usedsBy: string[] = [];
+  used: string[] = [];
+  usedBy: string[] = [];
 
   constructor(title: string, relations: Relation[]) {
     this.name = title;
@@ -21,7 +21,7 @@ export class Unit {
   setAfferents(relation) {
     switch (relation.type) {
       case RELATION_TYPE.INHERITANCE:
-        this.derivatives.push(relation.unitTo);
+        this.bases.push(relation.unitTo);
         break;
       case RELATION_TYPE.COMPOSITION:
         this.parts.push(relation.unitTo);
@@ -30,23 +30,23 @@ export class Unit {
         this.aggregates.push(relation.unitTo);
         break;
       case RELATION_TYPE.USE:
-        this.useds.push(relation.unitTo);
+        this.used.push(relation.unitTo);
     }
   }
 
   setEfferents(relation) {
     switch (relation.type) {
       case RELATION_TYPE.INHERITANCE:
-        this.bases.push(relation.unitTo);
+        this.derivatives.push(relation.unitFrom);
         break;
       case RELATION_TYPE.COMPOSITION:
-        this.wholes.push(relation.unitTo);
+        this.wholes.push(relation.unitFrom);
         break;
       case RELATION_TYPE.AGGREGATION:
-        this.elements.push(relation.unitTo);
+        this.elements.push(relation.unitFrom);
         break;
       case RELATION_TYPE.USE:
-        this.usedsBy.push(relation.unitTo);
+        this.usedBy.push(relation.unitFrom);
     }
   }
 
