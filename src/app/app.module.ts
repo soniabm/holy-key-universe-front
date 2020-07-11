@@ -15,6 +15,7 @@ import {GridComponent} from './itinerary/screen/view-component/grid/grid.compone
 import {DiagramComponent} from './itinerary/screen/view-component/simple/diagram/diagram.component';
 import {ExerciseComponent} from './itinerary/screen/view-component/simple/exercise/exercise.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {Safe} from './itinerary/screen/view-component/simple/utils';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     GridComponent,
     DiagramComponent,
     ExerciseComponent,
+    Safe
   ],
   imports: [
     BrowserModule,

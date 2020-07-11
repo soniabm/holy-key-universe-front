@@ -35,4 +35,8 @@ export class SimpleComponent implements OnInit {
     return this.getType() === ViewComponentType.EXERCISE;
   }
 
+  isDynamic(): boolean {
+    return this.getType() === ViewComponentType.DYNAMIC;
+  }
+
 }
