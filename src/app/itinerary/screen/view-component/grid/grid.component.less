@@ -5,4 +5,15 @@
     flex: 1 1 0;
     max-width: fit-content;
   }
+
+  &.column {
+    flex-direction: column;
+    & > div {
+      min-width: 100%;
+    }
+  }
+
+  &.row {
+    flex-direction: row;
+  }
 }

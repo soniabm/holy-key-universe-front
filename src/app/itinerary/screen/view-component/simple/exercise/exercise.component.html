@@ -1,0 +1,41 @@
+<!--Mirar si el error es diferente de null-->
+<div *ngIf="!exercise" class="alert alert-danger alert-dismissible fade show m-2">
+  <strong>Error! </strong>{{ errorMessage }}
+</div>
+<div class="w-100" *ngIf="exercise && isFillType()">
+  <form [formGroup]="exerciseForm">
+    <div class="p-3">
+      <ul class="m-0 p-0">
+        <li>{{exercise.statement}}</li>
+      </ul>
+    </div>
+    <div class="pl-4">
+      <span *ngFor="let word of words; let i = index;">
+        <input *ngIf="keyWord(word)" type="text" class="m-1" formControlName="response{{i}}">
+        <span *ngIf="!keyWord(word)"> {{word}} </span>
+      </span>
+    </div>
+    <div class="row">
+      <button type="submit" (click)="sendResponse()" class="btn btn-info" [disabled]="exerciseSent">Enviar</button>
+    </div>
+  </form>
+</div>
+<div class="w-100" *ngIf="exercise &&!isFillType()">
+  <form [formGroup]="exerciseForm">
+    <div class="p-2">
+      <ul class="m-0 p-0">
+        <li>{{exercise.statement}}</li>
+      </ul>
+    </div>
+    <textarea formControlName="response"></textarea>
+    <div class="row">
+      <button type="submit" (click)="sendResponse()" class="btn btn-info" [disabled]="exerciseSent">Enviar</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="correctNumber === gapsNum" class="alert alert-success alert-dismissible fade show m-2">Todas las respuestas son correctas.
+</div>
+<div *ngIf="correctNumber === 0" class="alert alert-danger alert-dismissible fade show m-2">Ninguna de las respuesta son correctas
+</div>
+<div *ngIf="correctNumber !== gapsNum && correctNumber > 0" class="alert alert-warning alert-dismissible fade show m-2">Alguna respuesta es correcta
+</div>

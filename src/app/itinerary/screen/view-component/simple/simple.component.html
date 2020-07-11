@@ -1,3 +1,4 @@
 <div *ngIf="isText()" class="mx-3" [innerHTML]="viewComponent.text"></div>
 <img *ngIf="isImage()" [alt]="viewComponent.image" [src]="viewComponent.image" class="px-3 py-3"/>
 <app-diagram *ngIf="isDiagram()" [unitTitle]="viewComponent.diagram"></app-diagram>
+<app-exercise *ngIf="isExercise()" [exercise]="viewComponent.exercise"></app-exercise>
