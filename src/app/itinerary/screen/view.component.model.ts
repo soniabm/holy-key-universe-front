@@ -7,6 +7,7 @@ export enum ViewComponentType {
   IMAGE = 'image',
   DIAGRAM = 'diagram',
   EXERCISE = 'exercise',
+  DYNAMIC = 'dynamic'
 }
 
 export interface ViewComponent {
@@ -16,4 +17,5 @@ export interface ViewComponent {
   image?: string;
   diagram?: string;
   exercise?: Exercise;
+  dynamic?: string;
 }
