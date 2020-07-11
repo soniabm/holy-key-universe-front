@@ -6,6 +6,6 @@
   <h2 class="text-center screen-title mb-5">{{ screen.title }}</h2>
   <div class="screen-content">
     <app-grid *ngIf="isScreenComposite()" [viewComponent]="screenComponent"></app-grid>
-    <app-simple *ngIf="!isScreenComposite()" [viewComponent]="screenComponent"></app-simple>
+    <app-simple class="w-100 h-100 d-flex justify-content-center" *ngIf="!isScreenComposite()" [viewComponent]="screenComponent"></app-simple>
   </div>
 </ng-container>

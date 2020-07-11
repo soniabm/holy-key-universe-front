@@ -1,9 +1,12 @@
+import {Exercise} from './view-component/simple/exercise/exercise.model';
+
 export enum ViewComponentType {
   COLUMN = 'column',
   ROW = 'row',
   TEXT = 'text',
   IMAGE = 'image',
-  DIAGRAM = 'diagram'
+  DIAGRAM = 'diagram',
+  EXERCISE = 'exercise',
 }
 
 export interface ViewComponent {
@@ -12,4 +15,5 @@ export interface ViewComponent {
   text?: string;
   image?: string;
   diagram?: string;
+  exercise?: Exercise;
 }
