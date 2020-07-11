@@ -31,21 +31,20 @@ export class DiagramComponent implements OnInit {
     private cdr: ChangeDetectorRef) { }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     if (this.diagramLoaded){
-      this.initSvg();
       this.formatDiagram();
     }
   }
 
   ngOnInit(): void {
+   this.getUnitRelations();
+  }
+
+  getUnitRelations() {
     this.relationService.getUnitRelations(this.unitTitle).subscribe(
       (relations) => {
-        this.relations = relations;
-        this.unit = new Unit(this.unitTitle, this.relations);
-        this.diagramLoaded = true;
-        this.cdr.detectChanges();
-        this.formatDiagram();
+        this.printDiagram(relations);
       },
       () => {
         this.errorMessage = 'Hubo algún problema al cargar el diagrama de la unidad: ' + this.unitTitle;
@@ -53,7 +52,22 @@ export class DiagramComponent implements OnInit {
     );
   }
 
+  printDiagram(relations) {
+    this.relations = relations;
+    this.unit = new Unit(this.unitTitle, this.relations);
+    this.diagramLoaded = true;
+    this.cdr.detectChanges();
+    this.formatDiagram();
+  }
+
+  changeCentralClass(unit): void {
+    this.diagramLoaded = false;
+    this.unitTitle = unit;
+    this.getUnitRelations();
+  }
+
   formatDiagram(): void {
+    this.initSvg();
     this.createSvg();
     const wholes = this.el.nativeElement.querySelector('#wholes');
     const bases = this.el.nativeElement.querySelector('#bases');
@@ -287,7 +301,7 @@ export class DiagramComponent implements OnInit {
 
   linkLateralBoxes(classDiagram: any, ...boxes){
     const filterBoxes = boxes.filter(box => box !== null);
-    filterBoxes.forEach((box, index) => {
+    filterBoxes.forEach((box) => {
       const TopDirection = box.id === 'used';
       const horizontalLine: LineSvg = { x1: 0, x2: 0, y1: 0, y2: 0 };
       horizontalLine.y1 = box.children[0].offsetTop + (TopDirection ? -30 : box.children[0].offsetHeight + 30);
