@@ -1,6 +1,6 @@
 {
   "name": "holy-key-universe-front",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "postinstall": "ng build --prod",
     "start": "node server.js"
